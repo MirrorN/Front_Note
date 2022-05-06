@@ -1,4 +1,4 @@
-## Note1
+## Note_html
 
 ### 路线
 
@@ -369,3 +369,77 @@ table -> tr  ->td(th)
 - action：提交到哪儿
 - method：POST， GET
 - name：表单域名称，用于区分不同的表单域
+
+###### input 标签
+
+type属性的属性值：
+
+- button：按钮（启动JS脚本）
+- checkbox：复选框
+  **所有的 checkbox 选项都要有相同的 name**
+- file：定义输入字段和“浏览”按钮，文件上传
+- hidden：隐藏的输入字段
+- image：图像形式的输入字段
+- password：密码字段
+- radio：单选按钮
+  **所有的 radio 需要有相同的name属性才实现多选一**
+- reset：重置按钮
+- submit：提交按钮，提交到服务器
+- text：单行输入字段（默认宽度：20字符）
+
+**重要属性**：
+
+- name：元素名称 （单选和复选按钮有相同的name）
+- value：input元素的值（供后台人员使用）
+- checked：单选和复选 设置默认勾选 `checked="checked"`
+- maxlength: 最大长度 （一般不会使用，使用正则表达式限制） 
+
+**label标签**：
+
+使用场景：为 input 标签定义标注， label 标签绑定一个表单元素，点击 label 标签内的文本时，浏览器会自动将焦点转到对应的表单元素上，增加用户体验
+
+语法规范：
+
+```
+<label for="id_name"> </label>
+<input type=" " id="id_name" />
+```
+
+label 标签的 `for` 属性与 input 的`id` 属性要对应
+
+###### select下拉框
+
+使用场景：多个选项供选择，节约空间
+
+语法规范：
+
+```
+<select>
+  <option>...</option>
+</select>
+```
+
+设置默认：
+
+```
+<option selected="selected">...<option>
+```
+
+###### textarea 文本域
+
+使用场景：输入内容较多（多行）
+
+语法规范：
+
+```
+<textarea rows="" cols="" >
+<textarea>
+```
+
+- cols: 每行字符数
+- rows：行数 （默认，多于规定后出现滚动条）
+- **上述两个属性不使用**
+
+##### 查阅文档
+
+MDN
