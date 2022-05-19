@@ -190,6 +190,153 @@ console.log(Number.MIN_VALUE - 1);   -- -Infinity 代表无限小
 console.log('string' - 10);   -- NaN 代表非数值
 ```
 
+`isNaN()`  方法用于判断某一个变量是否为数字（true或false）
+
+
+
+#### 2. 字符串型
+
+使用单引号或者双引号包裹的变量。
+
+- 推荐使用单引号
+- 注意引号的嵌套
+
+转义字符：
+
+1. `\n`：换行符
+2. `\\`：输出斜杠
+3. `\'`：输出单引号
+4. `\"`：输出双引号
+5. `\t`：tab缩进
+6. `\b`：空格
+
+几中常用的字符串处理方法：
+
+1. 字符串长度属性：`length`
+2. 字符串拼接方法：字符串 + 任何类型数据 （最后**结果都是字符串**类型的数据），拼接的中间也可以是变量
+
+
+
+#### 3. 布尔型
+
+只有两个值 `true`或者`false`
+
+
+
+#### 4. 特殊类型
+
+undefined + 1 = NaN
+
+undefined + 'a' = undefineda
+
+null 也是值
+
+```javascript
+var tmp;
+console.log(tmp);  // undefined
+console.log(tmp + 'a');  // 'undefineda'
+console.log(tmp + 1);  // NaN
+console.log(tmp + true); //NaN
+
+
+var tmp = null;
+console.log(tmp + 'a');  // nulla
+console.log(tmp + 1);  //1
+console.log(tmp + true);  //true
+```
+
+#### 5. 获取变量类型
+
+语法：
+
+```
+console.log(typeof var1);
+```
+
+```javascript
+var num = 10;
+console.log(typeof num);
+var sstr = 'pink';
+console.log(typeof sstr);
+var flag = true;
+console.log(typeof flag);
+var var1 = undefined;
+console.log(typeof var1);   //undefined
+var var2 = null;
+console.log(typeof var2);   //object
+
+// prompt 获得的值是 字符串 类型
+```
+
+注意，通过Chrome控制台颜色：
+
+- 蓝色：数字型
+- 深蓝色：布尔类型
+- 黑色：字符型
+- 浅灰色：undefined ， null
+
+
+
+#### 6.数据类型的转换
+
+将一种数据类型的变量转化为另一种数据类型。
+
+- 数字型转化为字符串：
+
+  - `num.toString()`
+  - `String(num)`
+  - 使用`+`拼接字符串：**使用的最多** （隐式转换）
+
+- 转化为数字型（重点）：
+
+  - `parseInt()`（取整函数，只保留整数部分）
+
+    ```javascript
+    parseInt('120px') = 120
+    paeseInt('px120px') = NaN
+    ```
+
+  - `parseFloat()`，对于带有字符的内容处理过程同上
+
+  - `Number()`
+
+  - `'12'-0`：隐式转换（利用 - * /）
+
+    ```javascript
+    '123' - '120' = 3
+    '123' * 1 = 123
+    ```
+
+- 转化为布尔型
+
+  - `Boolean()`函数
+
+  - 只有五个值会转化为false，其他都会转化为true：
+
+    ```
+    '', 0, NaN, null, undefined
+    ```
+
+#### 7.编译型语言和解释型语言
+
+编译型语言 - Java ： 运行时在代码执行之前收件使用编译器进行编译，生成中间代码文件 （编译器）
+
+解释型语言- Javascript ： 运行时边运行边进行及时解释 （解释器）
+
+
+
+#### 8. 标识符，关键字，保留字
+
+- 标识符：开发人员为变量，属性，函数，参数等取的名字，标识符不能设置为关键字或者保留字
+- 关键字：是指JS本身已经使用的字，例如 break，case catch， continue，var等
+- 保留字：实际上就是预留的关键字，未来有可能成为关键字，例如 boolean ，byte， char等
+
+
+
+
+
+
+
 
 
 
