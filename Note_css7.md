@@ -181,5 +181,188 @@ div div:nth-of-type(-n+2) {
 
 
 
+#### 3. 伪元素选择器
+
+伪元素选择器可以帮助我们利用CSS创建新建标签元素，而不需要HTML标签，简化HTML结构
+
+- `::before`：在元素内部的前面插入内容
+- `::after`：在元素内部后面插入内容
+
+注意：
+
+- before 和 after 创建一个元素，为**行内元素**（所以直接设置宽度高度是无效的，要注意设置转换块级或行内块元素）
+- 新创建的这个元素在文档树内是找不到的，所以被称为伪元素
+- before 和 after 必须有 content 属性
+- 伪元素选择器和标签选择器一样，权重为1
+
+
+
+案例：
+
+```css
+// 声明字体
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?dgvgwb');
+    src: url('fonts/icomoon.eot?dgvgwb#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?dgvgwb') format('truetype'),
+        url('fonts/icomoon.woff?dgvgwb') format('woff'),
+        url('fonts/icomoon.svg?dgvgwb#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+div {
+    position: relative;
+    height: 50px;
+    width: 200px;
+    border: 1px solid black;
+}
+//使用伪元素实现小箭头符号
+div::after {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-family: 'icomoon';
+    content: '\ea3c';
+}
+```
+
+这样html主体中只需要定义一个 div 元素即可：
+
+```
+<div></div>
+```
+
+
+
+伪元素选择器应用：清除浮动
+
+清除浮动的原因：
+
+1. 父盒子没有高度（靠子盒子高度撑开）
+2. 子盒子设置浮动
+3. 对父盒子下面的布局产生影响
+
+
+
+```css
+.clearfixx::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+```
+
+双伪元素清除浮动：
+
+```css
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+```
+
+
+
+#### 4.CSS3 盒子模型
+
+通过 `box-sizing`属性指定盒子模型，两种盒子模型计算盒子大小的方式不同：
+
+1. box-sizing: content-box 盒子实际大小为 content + padding + border（默认）
+2. box-sizing: border-box 盒子实际大小为 width
+
+因此预设值的样式可以设置为：
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+```
+
+
+
+#### 5.CSS3 其他特性
+
+滤镜： filter + 函数
+
+```
+img{
+  filter: blur(5px);  //模糊化处理
+}
+```
+
+calc 计算函数：在设置CSS属性的时候进行一些运算：
+
+```
+width: calc(100%-80px);
+```
+
+
+
+#### 6.过渡
+
+transition ，添加过渡动画，从一个样式变换为另一个样式，经常搭配 `:hover`使用
+
+```
+transition: 过渡的属性 花费时间 运动曲线 何时开始（延迟时间）
+```
+
+- 过渡属性：想要变化的css样式属性，如果想要所有的属性都进行变化过渡，直接写一个 all 即可
+- 花费时间：单位是 s（必须写单位）
+- 运动曲线：（可省略）
+- 何时开始：单位为 s（可省略），默认为 0s
+
+多个属性变化：
+
+```
+transition: width 1s, height 1s;
+```
+
+进度条：
+
+```html
+<style>
+    .bar {
+    height: 10px;
+    width: 150px;
+    border: 1px solid red;
+    border-radius: 3px;
+    }
+
+    .bar_in {
+    height: 100%;
+    width: 50%;
+    background-color: red;
+    transition: width 1s;
+    }
+
+    .bar:hover .bar_in {
+    width: 100%;
+    }
+</style>
+
+
+<div class="bar">
+  <div class="bar_in"></div>
+</div>
+```
+
+
+
+
+
+
+
 
 

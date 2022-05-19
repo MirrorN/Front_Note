@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素使用案例</title>
+    <style>
+        div {
+            position: relative;
+            width: 400px;
+            height: 300px;
+        }
+
+        div img {
+            width: 100%;
+            height: 100%;
+        }
+
+        div::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5) url('Materials/arr.png') no-repeat center;
+        }
+
+        div:hover::after {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="Materials/tudou.jpg" alt="tudou">
+    </div>
+</body>
+
+</html>
