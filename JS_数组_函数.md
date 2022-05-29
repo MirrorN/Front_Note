@@ -100,11 +100,46 @@ function func_name(var ...){
 
 如果不确定有多少个参数要传递的时候，可以使用 arguments来获取，js中arguments是函数的一个内置对象，存储的内容是传递的所有实参
 
+使用方式：
+
+```javascript
+function func() {
+    console.log(arguments);
+    console.log(arguments.length);
+    console.log(arguments[2]);
+
+    for (var i = 0; i < arguments.length; i++) {
+        console.log(arguments[i]);
+    }
+}
+
+func(1, 2, 3);
+```
+
+arguments是一个伪数组，并不是真正意义上的数组：
+
+- 具有数组的 length 属性
+- 可以按照索引方式进行存储
+- 没有真正数组的一些方法，例如 pop() push（）方法等
 
 
 
+## 函数的两种声明方式
 
+1. 利用函数关键字 `function`声明函数
 
+2. 函数表达式（匿名函数）：
+
+   ```javascript
+   var fun = function (num1, num2) {
+       return num1 + num2;
+   }
+   
+   var res = fun(1, 3);
+   console.log(res);
+   ```
+
+   其中`fun`是变量名而非函数名，匿名函数的声明方式与变量差不多，只不过里面存的是函数，函数表达式同样可以传递参数
 
 
 
